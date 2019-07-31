@@ -32,6 +32,5 @@ each repo creation
 svnadmin  create  /websrv/svn/branches<br/>
 chown -R apache:apache /websrv/svn/branches<br/>
 chcon -R -t httpd_sys_content_t /websrv/svn/branches<br/>
-chcon -R -t httpd_sys_rw_content_t /opt/svn/trunk<br/>
-chown -R apache:apache /websrv/svn/branches<br/>
+chcon -R -t httpd_sys_rw_content_t /opt/svn/branches<br/>
 
