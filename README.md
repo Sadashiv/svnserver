@@ -10,11 +10,10 @@ firewall-cmd --reload <br/>
 svnadmin create /opt/svn/trunk<br/>
 chown -R apache:apache /opt/svn/trun<br/>
 chcon -R -t httpd_sys_content_t  /opt/svn/trunk<br/>
+chcon -R -t httpd_sys_rw_content_t /opt/svn/trunk<br/>
 chown -R apache:apache /opt/svn/trunk<br/>
 chcon -R -t httpd_sys_content_t  /opt/svn/trunk<br/>
 vim /etc/sysconfig/selinux -Try with SELLINUX dsiabled if not make enable of SELINUX<br/>
-Optional step-> chcon -R -t httpd_sys_content_t  /opt/svn/trunk<br/>
-Optional step-> chcon -R -t httpd_sys_rw_content_t /opt/svn/trunk<br/>
 systemctl restart httpd<br/>
 <br/>
 Open Browser<br/>
@@ -27,3 +26,12 @@ svn log<br/>
 <br/>
 Referance:<br/>
 https://www.tecmint.com/install-apache-subversion-svn-tortoisesvn-centos-debian-ubuntu/comment-page-2/?unapproved=1211100&moderation-hash=087d04eaf51a03dafce42b300168e45b#comment-1211100<br/>
+
+each repo creation
+
+svnadmin  create  /websrv/svn/branches<br/>
+chown -R apache:apache /websrv/svn/branches<br/>
+chcon -R -t httpd_sys_content_t /websrv/svn/branches<br/>
+chcon -R -t httpd_sys_rw_content_t /opt/svn/trunk<br/>
+chown -R apache:apache /websrv/svn/branches<br/>
+
