@@ -1,6 +1,17 @@
 yum update -y<br/>
 yum update && yum install mod_dav_svn subversion httpd -y<br/>
 vim /etc/httpd/conf.modules.d/10-subversion.conf<br/>
+#<Location /svn/repo>
+<Location /svn>
+    DAV svn
+    SVNParentPath /opt/svn
+#    SVNParentPath /opt/svn/repo
+    AuthType Basic
+    AuthName "Welcome to SVN"
+    AuthUserFile /etc/httpd/subversion-auth
+    Require valid-user
+</Location>
+
 mkdir /opt/svn<br/>
 htpasswd -cB /etc/httpd/subversion-auth svn<br/>
 chgrp apache /etc/httpd/subversion-auth<br/>
